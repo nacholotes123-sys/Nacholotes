@@ -9,6 +9,9 @@
   --tinta: #2B1B12;
   --naranja: #E88D3E;
   --rosa-fresa: #E85D75;
+  --sombra: 0 8px 24px rgba(43,27,18,0.14);
+  --sombra-suave: 0 2px 8px rgba(43,27,18,0.08);
+  --radio: 18px;
 }
 
 *{box-sizing:border-box; margin:0; padding:0;}
@@ -31,20 +34,21 @@ body{
   text-align: center;
   position: relative;
   border-bottom: 10px solid var(--rojo-oscuro);
+  box-shadow: var(--sombra);
 }
 
 .hero .banderines{
   display:flex;
   justify-content:center;
-  gap:6px;
-  margin-bottom: 28px;
+  gap:8px;
+  margin-bottom: 32px;
 }
 .banderines span{
   width:0; height:0;
   border-left: 14px solid transparent;
   border-right: 14px solid transparent;
   border-top: 20px solid var(--crema);
-  opacity:0.85;
+  opacity:0.65;
 }
 .banderines span:nth-child(2n){ border-top-color: var(--verde); }
 .banderines span:nth-child(3n){ border-top-color: var(--naranja); }
@@ -56,7 +60,7 @@ body{
   text-transform: uppercase;
   line-height: 0.95;
   color: var(--crema);
-  text-shadow: 3px 3px 0 var(--rojo-oscuro);
+  text-shadow: 2px 2px 0 rgba(122,31,31,0.45);
 }
 
 .hero p.tag{
@@ -124,8 +128,8 @@ section.plato{
   justify-content:space-between;
   align-items:flex-start;
   gap: 20px;
-  padding: 14px 4px;
-  border-bottom: 1px dashed rgba(43,27,18,0.2);
+  padding: 16px 4px;
+  border-bottom: 1px solid rgba(43,27,18,0.08);
 }
 .item:last-child{ border-bottom:none; }
 
@@ -171,6 +175,7 @@ section.plato{
   font-family:'Caveat', cursive;
   font-size: 1.4rem;
   color: var(--rojo-oscuro);
+  box-shadow: var(--sombra-suave);
 }
 
 footer{
@@ -179,6 +184,7 @@ footer{
   text-align:center;
   padding: 30px 20px;
   font-size: 0.9rem;
+  border-radius: var(--radio) var(--radio) 0 0;
 }
 footer .horario{
   font-family:'Anton', sans-serif;
@@ -197,6 +203,7 @@ footer .horario{
   color: var(--crema);
   padding: 48px 24px 40px;
   text-align:center;
+  box-shadow: var(--sombra);
 }
 .detalle-header.nachos{ background: var(--rojo); }
 .detalle-header.elotes{ background: var(--naranja); }
@@ -249,19 +256,23 @@ footer .horario{
   flex-direction: column;
   gap: 6px;
   padding: 28px 24px;
-  border-radius: 16px;
+  border-radius: var(--radio);
   color: var(--crema);
   text-decoration: none;
-  transition: transform 0.15s;
+  box-shadow: var(--sombra-suave);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.categoria-card:hover{ transform: translateY(-3px); }
+.categoria-card:hover{
+  transform: translateY(-4px);
+  box-shadow: var(--sombra);
+}
 
-.categoria-card.nachos{ background: var(--rojo); }
-.categoria-card.elotes{ background: var(--naranja); }
-.categoria-card.bionicos{ background: var(--verde); }
-.categoria-card.frituras{ background: var(--rojo-oscuro); }
-.categoria-card.fresas{ background: var(--rosa-fresa); }
-.categoria-card.duros{ background: #B08828; }
+.categoria-card.nachos{ background: linear-gradient(155deg, var(--rojo), var(--rojo-oscuro)); }
+.categoria-card.elotes{ background: linear-gradient(155deg, var(--naranja), #C96F1F); }
+.categoria-card.bionicos{ background: linear-gradient(155deg, var(--verde), #5F7A22); }
+.categoria-card.frituras{ background: linear-gradient(155deg, var(--rojo-oscuro), #4A1212); }
+.categoria-card.fresas{ background: linear-gradient(155deg, var(--rosa-fresa), #C23B54); }
+.categoria-card.duros{ background: linear-gradient(155deg, #B08828, #8C6A1C); }
 
 .categoria-card h2{
   font-family: 'Anton', sans-serif;
