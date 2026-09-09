@@ -286,3 +286,31 @@ footer .horario{
   font-size: 1.15rem;
   opacity: 0.9;
 }
+
+/* ---------- ANIMACIÓN: tarjeta expandiéndose a pantalla completa ---------- */
+.card-clone{
+  position: fixed;
+  z-index: 999;
+  overflow: hidden;
+  pointer-events: none;
+  transition: top 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+              left 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+              width 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+              height 0.5s cubic-bezier(0.65, 0, 0.35, 1),
+              border-radius 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .card-clone{ transition: none; }
+}
+
+.page-enter-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
+  pointer-events: none;
+  transition: height 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
